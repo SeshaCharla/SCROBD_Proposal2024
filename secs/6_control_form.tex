@@ -1,0 +1,218 @@
+\section{Sensor corss-sensitivity and non-linear control from of the model}
+
+The $NO_x$ sensor is cross-sensitive to ammonia, resulting in the following
+measurement model (output) of the system:
+\begin{align*}
+    y_1 &= x_1 + \chi x_2\\
+    y_3 &= u_1 + \chi x_4
+\end{align*}
+
+\subsection{Non-linear model}
+We have the non-linear state-space model form eqn.~(\ref{eqn::parm_model_M}):
+\begin{align*}
+    \bm{x_1 \\ x_2 \\ x_3 \\ x_4} = \bm{C_{NO} \\ C_{NH_3} \\ M_{NH_3} \\ C_{NH_3, in}} \qquad &
+    \bm{u_1 \\ u_2 } = \bm{C_{NO, in} \\ u_{inj}}
+\end{align*}
+\begin{align*}
+    \mat{
+    \\f_{13} &=& k_1
+    \\f_{23} &=& k_{4F}
+    \\f_{32} &=& k_{4F} \Theta
+    \\f_{31} &=& k_1 V
+    \\f_{24} &=& b_v F
+    \\ b_b &=& \frac{1}{V}
+    }
+    \qquad
+    \mat{
+    \\ g_1    &=& b_v F
+    \\ g_2    &=& b_v F + k_{4F} \Theta
+    \\ g_{3}  &=& k_{4R}+k_3
+    \\ g_{23} &=& k_{4R} V^{-1}
+    \\ g_{32} &=& k_{4F} V \Theta
+    \\ g_4 &=& \omega_u
+    }
+    \qquad
+    \mat{
+        b_{11} &=& b_v F
+        \\
+        b_{42} &=& \frac{\omega_u b_u}{F}
+        \\ k_i &=& A_i e^{\lr{-E_a/RT}}
+    }
+\end{align*}
+\begin{equation}{\label{eqn::ctrl_state}}
+     \bm{\dot x_1 \\
+        \dot x_2\\
+        \dot x_3\\
+        \dot x_4} =
+    \bm{
+        -f_{12} x_1 x_3
+        -g_1 x_1
+        \\
+        %===
+        -g_2 x_2
+        + f_{23} x_2 x_3
+        + g_{23} x_3
+        + f_{24} x_4
+        \\
+        %===
+        -f_{32} x_2 x_3
+        -g_3 x_3
+        -f_{31} x_1 x_3
+        + g_{32} x_2
+        \\
+        %===
+        -g_4 x_4
+    }
+    + \bm{b_{11} & 0\\
+          0     & 0\\
+          0     & 0\\
+          0     & b_{42}  }\bm{u_1 \\ u_2 }
+\end{equation}
+\begin{equation}\label{eqn::ctrl_out}
+    \bm{y_1 \\ y_2 \\ y_3} = \bm{1 & \chi & 0 & 0 \\
+                                 0 & 1       & 0 & 0 \\
+                                 0 & 0       & 0 & \chi}
+                            \bm{x_1 \\ x_2 \\ x_3 \\ x_4} +
+                            \bm{0 & 0 \\
+                                0 & 0 \\
+                                1 & 0 \\}
+                            \bm{u_1 \\ u_2}
+\end{equation}
+
+
+\subsection{Linearized Model}
+\begin{align*}
+     \bar f_{13} &= \bar k_{1}, \quad&
+    \delta f_{13} &= \lr{ p_{1} \bar k_{1} } \\
+    %===
+     \bar f_{23} &= \bar k_{4F}, \quad &
+    \delta f_{23}  &= \lr{ p_{4F} \bar k_{4F} } \\
+    %===
+     \bar f_{32} &= \bar k_{4F} \Theta, \quad &
+    \delta f_{32}  &= \lr{ p_{32}  \bar k_{32} \Theta }
+    \\
+     \bar f_{31} &= \bar k_1 V, \quad &
+    \delta f_{31}  &= \lr{ p_1 \bar k_1 V }
+    \\
+     \bar f_{24} &= b_v \bar F,
+    \quad &
+    \delta f_{24}  &= b_v
+    \\
+     \bar g_1 &= b_v \bar F,
+    \quad &
+    \delta g_1  &= b_v
+    \\
+    \bar g_2 &= b_v \bar F + \bar k_{4F} \Theta,
+    \quad &
+    \delta g_{2_F}  &= b_v
+    \quad &
+    \delta g_{2_T} &= \lr{ p_{32}  \bar k_{32}  \Theta }
+    \\
+    \bar g_3 &= \bar k_{4R} + \bar k_3,
+    \quad &
+    \delta g_3 &= \lr{ p_{4R} \bar k_{4R} + p_3 \bar k_3}
+    \\
+    \bar g_{23} &= \bar k_{4R} b_v,
+    \quad &
+    \delta g_{23}  &= \lr{ p_{4R} \bar k_{4R} b_v }
+    \\
+    \bar g_{32} &= \bar k_{4F} V \Theta,
+    \quad &
+    \delta g_{32}  &= \lr{ p_{4F} \bar k_{4F} V \Theta }
+    \\
+    g_4 &= \omega_u
+    \\
+    \bar b_{11} &= b_v \bar F,
+    \quad &
+    \delta b_{11} &= b_v
+    \\
+    \bar b_{42} &= \frac{\omega_u b_u}{\bar F},
+    \quad &
+    \delta b_{42}  &= -\lr{\frac{\omega_u b_u}{\bar F^2}}
+\end{align*}
+
+
+\begin{align*}
+    \bm{\delta \dot x_1 \\ \delta \dot x_2 \\ \delta \dot x_3 \\ \delta \dot x_4} &= \bm{-\lr{ \bar f_{13} \bar x_3 + \bar g_1 } &
+                    0 &
+                    -\bar f_{13} \bar x_1 &
+                    0 \\
+                    %===
+                    0 &
+                    \lr{ -\bar g_2 + \bar f_{23} \bar x_3 }&
+                    \lr{\bar f_{23} \bar x_2 + \bar g_{23}}&
+                    \bar f_{24} \\
+                    %===
+                    -\bar f_{31} \bar x_3 &
+                    \lr{-\bar f_{32} \bar x_3 + \bar g_{32} } &
+                    \lr{-\bar f_{32} \bar x_2 - \bar g_3 - \bar f_{31} \bar x_1 } &
+                    0 \\
+                    %===
+                    0 & 0 & 0 & -g_4
+                    }
+    \bm{\delta x_1 \\ \delta x_2 \\ \delta x_3 \\ \delta x_4}\\
+            &\qquad+ \bm{ \bar b_{11} &
+                            0 &
+                            \delta f_{13} \bar x_1 \bar x_3 &
+                            \lr{\delta b_{11} \bar u_1- \delta g_1 \bar x_1}
+                            \\
+                        %===
+                        0&
+                        0 &
+                        \lr{-\delta g_{2_T} \bar x_2 + \delta f_{23} \bar x_2 \bar x_3 + \delta g_{23} \bar x_3} &
+                        \lr{-\delta g_{2_F} \bar x_2 + \delta f_{24} \bar x_4 }
+                        \\
+                        %===
+                        0&
+                        0&
+                        \lr{-\delta f_{32} \bar x_2 \bar x_3 - \delta g_3 \bar x_3 - \delta f_{31} \bar x_1 \bar x_3 + \delta g_{32} \bar x_2 } &
+                        0
+                        \\
+                        %===
+                        0&
+                        \bar b_{42}&
+                        0&
+                        \delta b_{42} \bar u_2
+                        }
+    \bm{\delta u_1 \\ \delta u_2 \\ \delta T \\ \delta F}
+\end{align*}
+\begin{align*}
+    \bm{\delta y_1 \\ \delta y_2 \\ \delta y_3} = \bm{1 & \chi & 0 & 0 \\
+                                 0 & 1       & 0 & 0 \\
+                                 0 & 0       & 0 & \chi}
+                            \bm{\delta x_1 \\ \delta x_2 \\ \delta x_3 \\ \delta x_4} +
+                            \bm{0 & 0 & 0 & 0\\
+                                0 & 0 & 0 & 0\\
+                                1 & 0 & 0 & 0\\
+                                }
+                            \bm{\delta u_1 \\ \delta u_2 \\ \delta T \\ \delta F}
+\end{align*}
+
+
+
+
+\subsection{Discrete form of the model}
+Let, $h$ be the sampling interval. Using Euler discretization:
+\begin{align*}
+    \bm{x_1[k+1] \\
+        x_2[k+1] \\
+        x_3[k+1] \\
+        } &=
+    \bm{
+        -hf_{12} x_1 x_3
+        -(hg_1-1) x_1
+        \\
+        %===
+        -(hg_2-1) x_2
+        + hf_{23} x_2 x_3
+        + hg_{23} x_3
+        \\
+        %===
+        - hf_{32} x_2 x_3
+        -(hg_3-1) x_3
+        - hf_{31} x_1 x_3
+        + hg_{32} x_2
+    }
+    + bh \bm{u_1 \\ u_2 \\ 0}\\
+    y[k] &= x_1[k] + \chi(T) x_2[k]
+\end{align*}

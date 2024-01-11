@@ -1,0 +1,45 @@
+\subsection{Catalyst molar storage capacity model}
+The variation of storage capacity of the catalyst ($\Theta$) with temperature is
+modelled using an exponential curve fit in \cite{hsieh2011development} (2011)
+from the available experimental data from
+\cite{willems2007closed}, \cite{ciardelli2004scr} and \cite{joo2008study}.  The
+results from \cite{schmieg2012thermal} (2012) show a similar trend.
+
+\begin{align*}
+    \Theta &= S_1 e^{-S_2 T}
+\end{align*}
+
+The parameters $S_1$ and $S_2$ change with age effecting the storage capacity at
+a given temperature.
+
+\begin{figure}[H]
+    \begin{minipage}{0.4\textwidth}
+        \begin{figure}[H]
+            \includegraphics[width = 0.8\textwidth]{./figs/storage_capacity/sae.png}
+            \caption*{Results from \cite{willems2007closed}}
+        \end{figure}
+    \end{minipage}
+    \begin{minipage}{0.4\textwidth}
+        \begin{figure}[H]
+            \includegraphics[width = \textwidth]{./figs/storage_capacity/th1.png}
+            \caption*{Results from \cite{schmieg2012thermal}}
+        \end{figure}
+    \end{minipage}
+    \begin{minipage}{0.4\textwidth}
+        \begin{figure}[H]
+            \includegraphics[width = \textwidth]{./figs/storage_capacity/th_2.png}
+            \caption*{Results from \cite{schmieg2012thermal}}
+        \end{figure}
+    \end{minipage}
+    \begin{minipage}{0.4\textwidth}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width = \textwidth]{./figs/storage_capacity/th_3.png}
+            \caption*{Results from \cite{schmieg2012thermal}}
+        \end{figure}
+    \end{minipage}
+    \caption{Temperature effects of catalyst storage capacity}
+\end{figure}
+
+
+\input{secs/catalyst_aging_factor.tex}
