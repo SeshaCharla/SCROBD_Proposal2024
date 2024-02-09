@@ -1,8 +1,6 @@
-\section{3 state dynamic model}
-\itbf{Assumptions }:
+\subsection{3 state dynamic model assumptions}
 
-The following are the additional assumptions along with the assumptions of
-4-state model that are used to arrive at the three-state dynamic model\cite{devarakonda2009model}:
+The following assumptions are used to arrive at the three-state dynamic model\cite{devarakonda2009model}:
 \begin{enumerate}
     \item Only the standard SCR reaction is considered.
     \item All $NO_x$ in the exhaust gas is assumed to be $NO$.
@@ -49,6 +47,13 @@ We have the mass (moles of reactants in/out) balance from the CSTR assumption:
     Fb_v \bm{1 & 0 \\ 0 & 1 \\ 0 & 0} \bm{ C_{NO, in} \\ C_{NH_3, in}}\\
     %===
 \end{equation}
+Where:
+\begin{align*}
+    R_1 &= \text{Standard SCR Reaction Rate}\\
+    R_3 &= \text{Ammonia Oxidation Rate}\\
+    R_{4F}, R_{4R} &= \text{Ammonia Adsorption/Desorption Rate}
+\end{align*}
+
 
 %===============================================================================
 \input{secs/4-1_3state_theta.tex}

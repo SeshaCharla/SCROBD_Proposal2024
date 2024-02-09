@@ -1,14 +1,18 @@
-\section{Sensor corss-sensitivity and non-linear control from of the model}
+% \subsection{Sensor cross-sensitivity and SCR system model}
 
-The $NO_x$ sensor is cross-sensitive to ammonia, resulting in the following
-measurement model (output) of the system:
+\subsection{Non-linear and Linearized Parametric Model}
+
+The sensor used for $NO_x$ measurement is sensitive to the ammonia in the
+tailpipe. This cross-sensitivity can be incorporated into the model by writing
+the output equation as:
 \begin{align*}
     y_1 &= x_1 + \chi x_2\\
-    y_3 &= u_1 + \chi x_4
 \end{align*}
 
-\subsection{Non-linear model}
-We have the non-linear state-space model form eqn.~(\ref{eqn::parm_model_M}):
+\subsubsection{Non-linear model}
+We have the non-linear state-space model for the reaction kinetics in SCR
+system (assuming urea decomposition has first-order dynamics with $\omega_u$ as
+cut-off frequency):
 \begin{align*}
     \bm{x_1 \\ x_2 \\ x_3 \\ x_4} = \bm{C_{NO} \\ C_{NH_3} \\ M_{NH_3} \\ C_{NH_3, in}} \qquad &
     \bm{u_1 \\ u_2 } = \bm{C_{NO, in} \\ u_{inj}}
@@ -20,7 +24,7 @@ We have the non-linear state-space model form eqn.~(\ref{eqn::parm_model_M}):
     \\f_{32} &=& k_{4F} \Theta
     \\f_{31} &=& k_1 V
     \\f_{24} &=& b_v F
-    \\ b_b &=& \frac{1}{V}
+    \\ b_v &=& \frac{1}{V}
     }
     \qquad
     \mat{
@@ -69,18 +73,16 @@ We have the non-linear state-space model form eqn.~(\ref{eqn::parm_model_M}):
           0     & b_{42}  }\bm{u_1 \\ u_2 }
 \end{equation}
 \begin{equation}\label{eqn::ctrl_out}
-    \bm{y_1 \\ y_2 \\ y_3} = \bm{1 & \chi & 0 & 0 \\
-                                 0 & 1       & 0 & 0 \\
-                                 0 & 0       & 0 & \chi}
+    \bm{y_1 \\ y_2} = \bm{1 & \chi & 0 & 0 \\
+                                 0 & 1       & 0 & 0}
                             \bm{x_1 \\ x_2 \\ x_3 \\ x_4} +
                             \bm{0 & 0 \\
-                                0 & 0 \\
-                                1 & 0 \\}
+                                0 & 0 \\}
                             \bm{u_1 \\ u_2}
 \end{equation}
 
 
-\subsection{Linearized Model}
+\subsubsection{Linearized Model}
 \begin{align*}
      \bar f_{13} &= \bar k_{1}, \quad&
     \delta f_{13} &= \lr{ p_{1} \bar k_{1} } \\
@@ -177,42 +179,11 @@ We have the non-linear state-space model form eqn.~(\ref{eqn::parm_model_M}):
     \bm{\delta u_1 \\ \delta u_2 \\ \delta T \\ \delta F}
 \end{align*}
 \begin{align*}
-    \bm{\delta y_1 \\ \delta y_2 \\ \delta y_3} = \bm{1 & \chi & 0 & 0 \\
-                                 0 & 1       & 0 & 0 \\
-                                 0 & 0       & 0 & \chi}
+    \bm{\delta y_1 \\ \delta y_2} = \bm{1 & \chi & 0 & 0 \\
+                                 0 & 1       & 0 & 0}
                             \bm{\delta x_1 \\ \delta x_2 \\ \delta x_3 \\ \delta x_4} +
                             \bm{0 & 0 & 0 & 0\\
-                                0 & 0 & 0 & 0\\
-                                1 & 0 & 0 & 0\\
+                                0 & 0 & 0 & 0
                                 }
                             \bm{\delta u_1 \\ \delta u_2 \\ \delta T \\ \delta F}
-\end{align*}
-
-
-
-
-\subsection{Discrete form of the model}
-Let, $h$ be the sampling interval. Using Euler discretization:
-\begin{align*}
-    \bm{x_1[k+1] \\
-        x_2[k+1] \\
-        x_3[k+1] \\
-        } &=
-    \bm{
-        -hf_{12} x_1 x_3
-        -(hg_1-1) x_1
-        \\
-        %===
-        -(hg_2-1) x_2
-        + hf_{23} x_2 x_3
-        + hg_{23} x_3
-        \\
-        %===
-        - hf_{32} x_2 x_3
-        -(hg_3-1) x_3
-        - hf_{31} x_1 x_3
-        + hg_{32} x_2
-    }
-    + bh \bm{u_1 \\ u_2 \\ 0}\\
-    y[k] &= x_1[k] + \chi(T) x_2[k]
 \end{align*}
