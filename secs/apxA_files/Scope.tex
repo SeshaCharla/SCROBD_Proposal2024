@@ -1,0 +1,48 @@
+\section{Research Objectives and Scope}
+\subsection{Approach to the research problem}
+Our approach is based on the presumption that the aging detection problem can be framed as a state/parameter estimation challenge with respect to the concentration dynamics of the gases involved. This gives rise to the following sub-problems:
+
+\begin{enumerate}
+\item Determining a suitable model for the system dynamics.
+\item Assessing whether the available data contains sufficient information for identifying the model parameters related to the chosen system dynamics.
+\item Investigating the relationship between the parameters/states and the aging factor of the catalyst.
+\item Understanding the uncertainties inherent in the aforementioned processes.
+\item Finally, developing and validating the aging detection algorithm.
+\end{enumerate}
+
+\subsection{Objectives for 2023 (previously)}
+\begin{enumerate}
+ \item In the current data, the operating conditions in the truck cover a wider range than the ones in test-cell. So, we wish to validate the SCR-ASC model on test-cell data with operating conditions similar to the truck data. If it is difficult to obtain such experimental data in test-cell, then use a high-fidelity SCR-ASC model in AVL Boost, to validate our low fidelity diagnostics-oriented model across a wide range of transient and steady operating conditions.
+ \item Explore other low fidelity diagnostics-oriented SCR-ASC model structures, that could be calibrated using the signals between SCR and ASC that could be obtained from the high-fidelity Boost model.
+ \item Validate the model-based and data-driven OBD results using truck data from trucks with DG and/or an EUL catalyst.
+ \item Validate the model-based and data-driven OBD results using high-fidelity simulations.
+ \item Based on the model and OBD validation results, iterate and improve both model-based and data-driven approaches to achieve robust diagnostics performance validated using high-fidelity simulations and actual data. Also implement a more rigorous and detailed version of the stochastic model-based OBD.
+ \item Support TTU in development and demonstration of model-based, data-driven, and frequency-domain OBD methods that rely on detecting NOx-rich regions where ASC is inactive.
+\end{enumerate}
+
+
+\subsection{Objectives for 2024}
+\begin{enumerate}
+\item Identify the model parameters and parametric uncertainties using
+the test-cell data and data from AVL boost model and validate them.
+\item Develop the estimation methodology for the storage capacity (Observer Design).
+\item Relate catalyst's aging to the storage capacity and develop robust
+non-intrusive aging detection algorithm and test the algorithm on the test-cell
+data and the road data segments.
+\end{enumerate}
+\subsection{Objectives post-2024}
+\begin{enumerate}
+    \item Provide an assessment of the potential to embed the algorithms in a real-time system.
+    \item Implementation and comprehensive evaluation, including robustness analysis, of the proposed diagnostic algorithms in engine test cell and on the road.
+\end{enumerate}
+
+
+\subsection{Other requirements}
+\begin{itemize}
+    \item Prior to the end of this project, a proposal for follow-on work will be submitted to Cummins.
+    \item Cummins to provide expertise via mentorship and regular feedback.
+    \item Cummins to provide funds to support the students.
+    \item Cummins to provide test-cell data with operating conditions similar to on-road trucks
+    \item Cummins to provide truck data with at least one and preferably two known aging levels (could be DG and/or EUL)
+    \item Cummins to provide access to high-fidelity AVL Boost model for SCR-ASC. This could be a black-box model with access to pre-SCR, post-SCR, post-ASC signals, and NH3 storage values in SCR and ASC.
+\end{itemize}
