@@ -8,7 +8,7 @@ data ($y_1$) and the ammonia concentration measurement ($x_2$). We have,
 \end{align*}
 
 Note that the FTIR sensor has bias (and drift) that have to be corrected for.
-Let, $x_b$ be the biased sesnsor data and $b$ be the bias.
+Let $x_b$ be the biased sensor data and $b$ be the bias.
 \begin{align*}
     x_b &= x + b(t)
 \end{align*}
@@ -22,7 +22,7 @@ the linear drift in the sensor as well.
 \end{align*}
 
 $b_1$ and $b_0$ are estimated using the bias at the starting segment and the
-tail end of the data can fitting the change linearly with time.
+tail end of the data can fit the change linearly with time.
 
 \begin{figure}[H]
     \begin{minipage}{0.49\textwidth}
@@ -50,7 +50,7 @@ ammonia. Thus the expression for cross-sensitivity becomes:
 \end{align*}
 
 \itbf{Least-squares estimation assuming temperature independence}\\
-\itbf{Assumption}: The temperature changes in RMC cycle don't effect the
+\itbf{Assumption}: The temperature changes in RMC cycle don't affect the
 cross-sensitivity factor significantly. Thus, it can be treated as a constant
 w.r.t temperature fluctuations in that range.
 
@@ -70,7 +70,7 @@ We have,
             \includegraphics[width=\textwidth]{./figs/chi_est/dg_rmc_chi.eps}
         \end{figure}
     \end{minipage}
-        \caption{$\chi$ estimation for rmc cycles}
+        \caption{$\chi$ estimation for RMC cycles}
 \end{figure}
 
 \begin{figure}[H]
@@ -128,4 +128,4 @@ combined into:
 \end{figure}
 
 
-Introducing temperature clearly decreased the prediction error in the model. However, the reduction in error, while noticeable, is not significant when compared to the temperature-independent model, whose error remains within acceptable limits.
+Introducing temperature clearly decreases the prediction error in the model. However, the reduction in error, while noticeable, is not significant when compared to the temperature-independent model, whose error remains within acceptable limits.
