@@ -1,6 +1,4 @@
-\section{SCR-ASC Reactions and Dynamics}
-
-\subsection{SCR-ASC Reactions}
+\subsubsection{SCR-ASC Reactions}
 Eley Rideal reaction mechanism \cite{hsieh2011development}
 \cite{yuan2015diesel}, \cite{nova2014urea} is considered for the interpreting
 the SCR reactions. The mechanism involves the following reactions:
@@ -47,119 +45,8 @@ the SCR reactions. The mechanism involves the following reactions:
 The PDE model for SCR reaction kinematics \cite{nova2014urea} is reduced to ODE model \cite{devarakonda2008adequacy} using by assuming "continuous stirred tank reactor (CSTR)" model (Control volume approach).
 
 
-\subsection{General reaction kinetics}
-For a stoichiometric reaction of the following form:
-\begin{align*}
-    a A + b B \longrightarrow c C + d D
-\end{align*}
-We have the reaction rate \cite{chem_kine}:
-\begin{align*}
-    r &= -\frac{1}{a} \frac{d [A]}{dt}
-       = -\frac{1}{b} \frac{d [B]}{dt}
-       = \frac{1}{c}  \frac{d [C]}{dt}
-       = \frac{1}{d}  \frac{d [D]}{dt}\\
-    r &= k [A]^m [B]^n\\
-    \text{Where, }\quad &\\
-    [\bullet] &- \text{Concentration of the reactant } \bullet\\
-    k &- \text{Rate constant}\\
-    m, n &- \text{Constant exponents, ($m+n$) is the order of reaction}\\
-\end{align*}
-In the subsequent derivations, the exponents in the rate equations are limited
-to either zero or 1 $m, n \in \{0, 1\}$ (This is consistent with the assumption
-that reaction rates are proportional to gas-phase concentrations from \cite{devarakonda2009model}).
-
-The rate constant can be determined using \itbf{Arrhenius equation}:
-\begin{align*}
-    k &= A e^{E_a/RT}\\
-    \text{Where,} \quad &\\
-    A &- \text{Pre-exponential factor}\\
-    E_a &- \text{Activation energy}\\
-    T &- \text{Temperature}\\
-    R &- \text{Universal gas constant}
-\end{align*}
-\subsubsection{Effects of temperature change on rate constant}
-We have the Arrhenius equation:
-\begin{align*}
-    k &= A e^{-E_a/RT}\\
-    \implies \delta k &= \delta T A \lr{\frac{E_a}{RT^2}} e^{-E_a/RT} = \delta T k \lr{\frac{E_a}{RT^2}}\\
-\end{align*}
-In general, $E_a$ is several orders of magnitude greater than the other
-parameters. Thus, small change in temperature gets amplified as the change in
-the rate-constant.
-
-Also, we have the first-order tayer approximation for the rate-constant
-variation with temperature:
-\begin{align*}
-    k(T_0 + \delta T) &\approx k(T_0) + \frac{E_a}{RT_0^2} k(T_0) \delta T\\
-    k(\delta T) &\approx k_0 + p_0k_0 \delta T
-\end{align*}
-This form would be more amenable to parameter estimation despite introducing
-approximation errors.
-
-
-
-%===============================================================================
-\subsection{Eley-Rideal Mechanism}
-In this mechanism, proposed in 1938 by D. D. Eley and E. K. Rideal, only one of
-the molecules adsorbs and the other one reacts with it directly from the gas
-phase, without adsorbing ("non-thermal surface reaction") \cite{eley_rideal}.
-\begin{align*}
-    A(g) + S(s) &\rightleftharpoons AS(s)  \qquad (k_1, k_{-1})\\
-    AS(s) + B(g) &\longrightarrow Products \qquad (k)
-\end{align*}
-
-We have the rate of the second reaction:
-\begin{align*}
-    r &= k C_s \theta C_B\\
-    \theta &= \frac{C_{AS}}{C_S}
-\end{align*}
-Thus,
-\begin{align*}
-    \frac{d C_{AS}}{dt} &= k_1 C_A C_S (1-\theta) - k_{-1} \theta C_S - k C_S \theta C_B\\
-    \text{At equilibrium}:\qquad &\\
-    \frac{d C_{AS}}{dt} &= 0
-    \implies \theta = \frac{k_1 C_A C_S}{k_1 C_A C_s + k_{-1}C_S + k C_s C_B}
-\end{align*}
-Based on the rate of individual reactions, we have the following
-simplifications:
-\begin{enumerate}
-    \item If the limiting step is adsorption/desorption:
-    \begin{align*}
-        \implies k C_B &\gg k_1 C_A, k_{-1}\\
-        \implies \theta &= 1 \implies r = k C_S C_B
-    \end{align*}
-
-    \item If the limiting step is the reaction:
-    \begin{align*}
-        \implies k C_B &\ll k_1 C_A, k_{-1}\\
-        \implies \theta &= \frac{k_1 C_A C_S}{k_1 C_A C_S + k_{-1}C_S}
-                        = \frac{K_{ad} C_A}{K_{ad}C_A + 1} \qquad
-        \text{where, } K_{ad} = \frac{k_1}{k_{-1}} \qquad
-        [\text{Langmuir's Isotherm}]\\
-        \implies r &= k C_S C_B \frac{K_{ad} C_A}{K_{ad}C_A + 1}
-    \end{align*}
-The above expression can be further simplified based on the relative
-concentrations of A and B:
-\begin{enumerate}
-    \item High concentrations of A, $(C_A \gg C_B)$:
-    \begin{align*}
-        \implies r &= k C_S C_B
-    \end{align*}
-    The order of the reaction is zero w.r.t A.
-    \item Low concentrations of A, $(C_A \ll C_B)$:
-    \begin{align*}
-        r &= k C_S K_{ad} C_A C_B = k_r C_S C_A C_B
-    \end{align*}
-\end{enumerate}
-\end{enumerate}
-
-\itbf{Note}: Arrhenius equation can be used to model the temperature dependence
-of the adsorption and desorption rate constants (thermal-desroption).
-
 % ==============================================================================
-
-% ==============================================================================
-\subsection{Reaction Rates}
+\subsubsection{Reaction Rates}
 \itbf{Assumptions:}
 \begin{enumerate}
 \item The reaction rates are only functions of gas-phase concentrations of $NO$,
