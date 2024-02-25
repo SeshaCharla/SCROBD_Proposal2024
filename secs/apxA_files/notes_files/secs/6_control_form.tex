@@ -1,6 +1,6 @@
 % \subsection{Sensor cross-sensitivity and SCR system model}
 
-\section{Non-linear and Linearized Parametric Model}
+\subsubsection{Non-linear and Linearized Parametric Model}
 
 The sensor used for $NO_x$ measurement is sensitive to the ammonia in the
 tailpipe. This cross-sensitivity can be incorporated into the model by writing
@@ -9,7 +9,7 @@ the output equation as:
     y_1 &= x_1 + \chi x_2\\
 \end{align*}
 
-\subsection{Non-linear model}
+\itbf{Non-linear model}
 We have the non-linear state-space model for the reaction kinetics in SCR
 system (assuming urea decomposition has first-order dynamics with $\omega_u$ as
 cut-off frequency):
@@ -82,7 +82,7 @@ cut-off frequency):
 \end{equation}
 
 
-\subsection{Linearized Model \label{eqn::lin_model}}
+\itbf{Linearized Model}
 \begin{align*}
      \bar f_{13} &= \bar k_{1}, \quad&
     \delta f_{13} &= \lr{ p_{1} \bar k_{1} } \\

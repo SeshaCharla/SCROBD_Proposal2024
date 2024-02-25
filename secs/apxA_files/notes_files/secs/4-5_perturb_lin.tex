@@ -1,4 +1,4 @@
-\subsection{Perturbation Models}
+\subsubsection{Perturbation Models}
 The perturbation model would bring down the change in
 temperature from exponent to the algebriac form. We have the first-order tayler
 approximation of rate constant:
@@ -77,82 +77,7 @@ Introducing the above approximation into the lumped parameters from eqn.\ref{eqn
     \delta b_{42} \delta F &= -\lr{\frac{\omega_u b_u}{\bar F^2}} \delta F
 \end{align*}
 
-
-We have the purturbation models for individual state dynamics:
-\begin{enumerate}
-\item
-\begin{align*}
-    \dot x_1 &=  -f_{13}(T) x_1 x_3 -g_1(F) x_1 + b_{11}(F) u_1
-    \\
-    \implies
-    \delta \dot x_1 &= \bm{-\lr{ \bar f_{13} \bar x_3 + \bar g_1 } &
-                                    0 &
-                                    -\bar f_{13} \bar x_1 &
-                                    0
-                        }
-                    \bm{\delta x_1 \\ \delta x_2 \\ \delta x_3 \\ \delta x_4}
-                    +
-                        \bm{\bar b_{11} &
-                            0 &
-                            \delta f_{13} \bar x_1 \bar x_3 &
-                            \lr{\delta b_{11} \bar u_1- \delta g_1 \bar x_1}
-                        }
-                    \bm{\delta u_1 \\ \delta u_2 \\ \delta T \\ \delta F}
-\end{align*}
-%===============================================================================
-\item
-\begin{align*}
-\dot x_2 &= -g_2(F, T) x_2 + f_{23}(T) x_2 x_3 + g_{23}(T) x_3 + f_{24}(F) x_4 \\
-\implies
-\delta \dot x_2 &= \bm{0 &
-                    \lr{ -\bar g_2 + \bar f_{23} \bar x_3 }&
-                    \lr{\bar f_{23} \bar x_2 + \bar g_{23}}&
-                    \bar f_{24}}
-                    \bm{\delta x_1 \\ \delta x_2 \\ \delta x_3 \\ \delta x_4}
-                    \\
-                    &+
-                    \bm{0&
-                        0 &
-                        \lr{-\delta g_{2_T} \bar x_2 + \delta f_{23} \bar x_2 \bar x_3 + \delta g_{23} \bar x_3} &
-                        \lr{-\delta g_{2_F} \bar x_2 + \delta f_{24} \bar x_4 }
-                        }
-                    \bm{\delta u_1 \\ \delta u_2 \\ \delta T \\ \delta F}
-\end{align*}
-%===============================================================================
-\item
-\begin{align*}
-\dot x_3 &= -f_{32}(T) x_2 x_3 -g_3(T) x_3 -f_{31}(T) x_1 x_3 + g_{32}(T) x_2 \\
-\implies
-\delta \dot x_3 &= \bm{-\bar f_{31} \bar x_3 &
-                       -\bar f_{32} \bar x_3 + \bar g_{32} &
-                       -\bar f_{32} \bar x_2 - \bar g_3 - \bar f_{31} \bar x_1 &
-                       0}
-                    \bm{\delta x_1 \\ \delta x_2 \\ \delta x_3 \\ \delta x_4}
-                    \\
-                    &+
-                    \bm{0&
-                        0&
-                        -\delta f_{32} \bar x_2 \bar x_3 - \delta g_3 \bar x_3 - \delta f_{31} \bar x_1 \bar x_3 + \delta g_{32} \bar x_2 &
-                        0}
-                    \bm{\delta u_1 \\ \delta u_2 \\ \delta T \\ \delta F}
-\end{align*}
-%===============================================================================
-\item
-\begin{align*}
-\dot x_4 &= -g_4 x_4 + b_{42}(F) u_2\\
-\implies
-\delta \dot x_4 &= \bm{0 & 0 & 0 & -g_4}
-                    \bm{\delta x_1 \\ \delta x_2 \\ \delta x_3 \\ \delta x_4}
-                    +
-                    \bm{0&
-                        \bar b_{42}&
-                        0&
-                        \delta b_{42} \bar u_2}
-                    \bm{\delta u_1 \\ \delta u_2 \\ \delta T \\ \delta F}
-\end{align*}
-\end{enumerate}
-
-Combining above equations, we have the linearised model of the system:
+We have the linearized model of the system:
 
 \begin{align*}
     \bm{\delta \dot x_1 \\ \delta \dot x_2 \\ \delta \dot x_3 \\ \delta \dot x_4} &= \bm{-\lr{ \bar f_{13} \bar x_3 + \bar g_1 } &

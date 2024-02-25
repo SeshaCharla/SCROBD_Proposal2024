@@ -1,4 +1,4 @@
-\subsection{Dynamic Model with storage ratio $(\theta)$ as state}
+\subsubsection{Dynamic Model with storage ratio $(\theta)$ as state}
 Let,
 \begin{align*}
     \bm{x_1 \\ x_2 \\ x_3} = \bm{C_{NO} \\ C_{NH_3} \\ \theta} \qquad &
@@ -67,35 +67,4 @@ of product of states and individual states in each of the equations:
 \end{equation}
 
 \itbf{Note}: Some $f_{\bullet}\,'s, g_{\bullet}\,'s$ are algebraically related.
-
-\subsubsection{Small Perturbation model}
-We have the small-perturbation model from eqn.~\ref{eqn::parm_model_theta}:
-\begin{equation}\label{eqn::sml_ptrb_theta}
-     \bm{\delta \dot x_1 \\
-        \delta \dot x_2\\
-        \delta \dot x_3\\
-        } =
-    \bm{
-        -\lr{g_1 + f_{12} x_{30}} &
-        0                                  &
-        -f_{13} x_{10}
-        \\
-        %===
-        0 &
-        -\lr{g_2 - f_{23} x_{30}} &
-        \lr{f_{23} x_{20}+ g_{23}}
-        \\
-        %===
-        -f_{31} x_{30}  &
-        g_{32} - f_{32} x_{30}&
-        -f_{32} x_{20} - g_3 - f_{31} x_{10}
-    }
-    \bm{\delta x_1\\
-        \delta x_2\\
-        \delta x_3\\
-        }
-    + b_v F \bm{\delta u_1 \\ \delta u_2 \\ 0}
-\end{equation}
-
-
 %===============================================================================

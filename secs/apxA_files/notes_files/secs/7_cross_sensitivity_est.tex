@@ -1,7 +1,7 @@
-\section{$NO_x$ sensor cross-sensitivity Estimation \label{sec::cross}}
+\subsubsection{$NO_x$ sensor cross-sensitivity Estimation}
 
 The sensor cross-sensitivity $\chi$ can be estimated using the FTIR (Fourier
-transform infrared) sensor data ($x_1$) along with the actual sensor measrement
+transform infrared) sensor data ($x_1$) along with the actual sensor measurement
 data ($y_1$) and the ammonia concentration measurement ($x_2$). We have,
 \begin{align*}
     y_1 &= x_1 + \chi x_2
@@ -13,7 +13,7 @@ Let, $x_b$ be the biased sesnsor data and $b$ be the bias.
     x_b &= x + b(t)
 \end{align*}
 
-\subsection{Bias correction}
+\itbf{Bias correction}\\
 The value of $b$ assumed to linearly change with time, this assumption captures
 the linear drift in the sensor as well.
 
@@ -40,8 +40,7 @@ tail end of the data can fitting the change linearly with time.
 
 
 
-\subsection{Effect of $NH_3$ sensor bias and minimum threshold for cross-sensitivity}
-
+\itbf{Effect of $NH_3$ sensor bias and minimum threshold for cross-sensitivity}\\
 The ammonia sensor used for ammonia measurement also has bias and there is a
 threshold on ammonia for which the $NO_x$ sensor becomes cross-sensitive to
 ammonia. Thus the expression for cross-sensitivity becomes:
@@ -50,7 +49,7 @@ ammonia. Thus the expression for cross-sensitivity becomes:
     y_1 &= \lr{x_1 - b_0} + \chi (x_2 - b_{th})\\
 \end{align*}
 
-\subsection{Least-squares estimation assuming temperature independence}
+\itbf{Least-squares estimation assuming temperature independence}\\
 \itbf{Assumption}: The temperature changes in RMC cycle don't effect the
 cross-sensitivity factor significantly. Thus, it can be treated as a constant
 w.r.t temperature fluctuations in that range.
@@ -83,13 +82,13 @@ We have,
 The error can be reduced by introducing the effects of temperature into $\chi$.
 
 
-\subsection{$\chi$ as a temperature function}
+\itbf{$\chi$ as a temperature function}\\
 For simplicity, $\chi$ is assumed to be a linear function of temperature.
 \begin{align*}
     \chi(T) &= a T - b_T
 \end{align*}
 
-\subsection{Least-squares estimation with temperature dependence}
+\itbf{Least-squares estimation with temperature dependence}\\
 Assuming the sensor-bias is not time-varying ($\because$ $b_1$ is small). The
 sensor bias, cross-sensitivity threshold and temperature dependence can be
 combined into:
