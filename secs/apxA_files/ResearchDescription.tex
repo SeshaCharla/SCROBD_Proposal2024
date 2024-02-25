@@ -22,35 +22,37 @@ control-oriented SCR-aging models have been validated or tested on real-world
 catalyst degradation data. Another limitation of existing OBD methods for SCR
 systems is that they do not consider the presence of Ammonia Slip Catalyst
 (ASC) in series with SCR. Also, most existing OBD approaches cannot work under
-the limitations of commercial after-treatment instrumentation such as no NH3
-sensors, cross-sensitive $NO_x$ sensors etc. Therefore, development of better
-models to design OBD methods that can work with commercial systems under
-on-road conditions is required. Purdue University and TTU have already
-initiated the research effort in collaboration with Cummins Inc. to fill this
-gap by investigating model-based and data-driven diagnostic algorithms to
-detect aging in SCR systems. The overall research endeavor includes:
+the limitations of commercial after-treatment instrumentation such as
+unavailability $NH_3$ sensors, cross-sensitive $NO_x$ sensors, etc. Therefore,
+development of better models to design OBD methods that can work with
+commercial systems under on-road conditions is required. Purdue University and
+TTU have already initiated the research effort in collaboration with Cummins
+Inc. to fill this gap by investigating model-based and data-driven diagnostic
+algorithms to detect aging in SCR systems. The overall research endeavor
+includes:
 
 \begin{enumerate}
 \item achieving insight in SCR aging from modeling and diagnostic perspectives
 via the comprehensive analysis of experimental data;
 \item developing accurate control-oriented after-treatment models to predict
-reduced emissions' performance at different degradation levels, and
+reduced emissions systems' performance at different degradation levels, and
 \item developing robust and effective non-intrusive diagnostic methods that could distinguish SCR catalysts at different aging levels for real-world driving conditions.
 \end{enumerate}
 
 As part of this effort, Cummins provided real-world truck data and test-cell
-data, along with seed funds for the year 2022, to Purdue University and TTU. In
-the year 2022, Purdue and TTU thoroughly studied the data, and explored several
-model-based and data-driven OBD approaches. For the model-based approach,
-Purdue developed a model and a model-based OBD for the operating conditions
-when ASC is active, and TTU has been working on a complementary model for
-conditions when the ASC is inactive. For the data-driven approach, Purdue
-worked on a binary classifier to classify the catalyst as either degreened (DG)
-or EUL at each time-stamp, and TTU has been working on exploring several
-methods to detect $NO_x$-rich operating conditions which are suitable to
-extract distinct features from each truck. The motivation behind this proposal
-is to obtain funds for the year 2024 to continue this effort to develop OBD
-method capable of meeting the previously laid out requirements.
+data, along with seed funds for the year 2022 and 2023, to Purdue University
+and TTU. In the year 2022, Purdue and TTU thoroughly studied the data, and
+explored several model-based and data-driven OBD approaches. For the
+model-based approach, Purdue developed a model and a model-based OBD for the
+operating conditions when ASC is active, and TTU has been working on a
+complementary model for conditions when the ASC is inactive. For the
+data-driven approach, Purdue worked on a binary classifier to classify the
+catalyst as either degreened (DG) or EUL at each time-stamp, and TTU has been
+working on exploring several methods to detect $NO_x$-rich operating conditions
+which are suitable to extract distinct features from each truck. The motivation
+behind this proposal is to obtain funds for the year 2024 to continue this
+effort to develop an OBD method capable of meeting the previously laid out
+requirements.
 
 This is a joint effort by Purdue University and TTU and this document proposes
 Purdue's share of the work for 2024. Purdue will focus on improving the
@@ -74,29 +76,36 @@ the Cummins existing commercial SCR systems will be planned in follow-on work.
 The research team consists of Purdue University and TTU. The research expertise and qualification of Purdue University to successfully complete the project are described as follows:
 
 The research group from Purdue University is led by Prof. Peter H. Meckl. Prof.
-Meckl is a Professor of Mechanical Engineering at Purdue University. He received
-his B.S. degree in Mechanical Engineering from Northwestern University in 1981,
-M.S. in Mechanical Engineering from MIT in 1984, and Ph.D. in Mechanical
-Engineering from MIT in 1988. He was the principal investigator for Purdue
-EcoCAR2 project. He and his team have written 45 archival journal papers and
-over 100 refereed conference papers, many of them concerning automotive control.
-Much of the research on engine and after-treatment diagnostics and control has
-been sponsored by Cummins, work that spans over 25 years. He has been involved
-in research on modeling and control of urea-SCR systems starting in 2013 and has
-graduated four M.S. thesis students who worked on modeling, estimation, and
-control for the urea-SCR system. He has one PhD student currently
-working on developing OBD for urea-SCR systems.
+Meckl is a Professor of Mechanical Engineering at Purdue University. He
+received his B.S. degree in Mechanical Engineering from Northwestern University
+in 1981, M.S. in Mechanical Engineering from MIT in 1984, and Ph.D. in
+Mechanical Engineering from MIT in 1988. He was the principal investigator for
+Purdue EcoCAR2 project. He and his team have written 48 archival journal papers
+and over 100 refereed conference papers, many of them concerning automotive
+control. Much of the research on engine and after-treatment diagnostics and
+control has been sponsored by Cummins, work that spans over 30 years. He has
+been involved in research on modeling and control of urea-SCR systems starting
+in 2013 and has graduated six M.S. thesis students and one PhD student who
+worked on modeling, estimation, and control for the urea-SCR system. He has one
+PhD student currently working on developing OBD for urea-SCR systems.
 
 
 
 \subsection{Summary of work and results from 2023}
 
+\input{secs/apxA_files/notes_files/secs/2_SCR_reactions.tex}
+\input{secs/apxA_files/notes_files/secs/3_urea_dosing.tex}
+\input{secs/apxA_files/notes_files/4_3state_model.tex}
+\input{secs/apxA_files/notes_files/5_adsorption_model.tex}
+\input{secs/apxA_files/notes_files/6_control_form.tex}
+\input{secs/apxA_files/notes_files/7_cross_sensitivity_est.tex}
+
 \subsubsection{Conclusions}
 The full non-linear model for gas concentrations was derived based on a CSTR
-model with reduced-order dynamics, that were previously justified. Model
-parameters were determined as explicit functions of reaction rates and the
-catalyst's ammonia storage capacity.  Parameter identification, beginning with
-the output equation and focusing on $NO_x$ sensor cross-sensitivity ($\chi$),
-was carried out using RMC test-cell data from degreened and aged catalysts. A
-preliminary indicator of aging was observed from the catalyst's storage capacity
-versus temperature curve.
+model with reduced-order dynamics, that were previously justified in
+literature. Model parameters were determined as explicit functions of reaction
+rates and the catalyst's ammonia storage capacity.  Parameter identification,
+beginning with the output equation and focusing on $NO_x$ sensor
+cross-sensitivity ($\chi$), was carried out using RMC test-cell data from
+degreened and aged catalysts. A preliminary indicator of aging was observed
+from the catalyst's storage capacity versus temperature curve.
