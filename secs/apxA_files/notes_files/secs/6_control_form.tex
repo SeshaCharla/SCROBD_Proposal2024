@@ -259,7 +259,7 @@ and the flow rate ($\delta F$)
 
 
 
-\subsubsection{Output Equation}
+\subsubsection{Output Equations}
 The sensor used for $NO_x$ measurement is sensitive to the ammonia in the
 tailpipe. This cross-sensitivity can be incorporated into the model by writing
 the output equation as:
@@ -267,8 +267,7 @@ the output equation as:
     y_1 &= x_1 + \chi x_2\\
 \end{align*}
 
-Thus we have the output equation for the non-linear (\ref{eqn::ctrl_out}) and
-linear(\ref{eqn::lin_out}) models:
+Thus, we have the output equation for the non-linear model:
 
 \begin{equation}\label{eqn::ctrl_out}
     \bm{y_1 \\ y_2} = \bm{1 & \chi & 0 & 0 \\
@@ -279,6 +278,7 @@ linear(\ref{eqn::lin_out}) models:
                             \bm{u_1 \\ u_2}
 \end{equation}
 
+Consequently, the output equation for the linearized model:
 
 \begin{equation}\label{eqn::lin_out}
     \bm{\delta y_1 \\ \delta y_2} = \bm{1 & \chi & 0 & 0 \\
