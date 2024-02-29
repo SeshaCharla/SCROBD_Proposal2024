@@ -1,4 +1,4 @@
-\subsubsection{Perturbation Models}
+\subsubsection{Linearized Model}
 The perturbation model would bring down the change in
 temperature from exponent to the algebriac form. We have the first-order tayler
 approximation of rate constant:
@@ -79,8 +79,8 @@ Introducing the above approximation into the lumped parameters from eqn.\ref{eqn
 
 We have the linearized model of the system:
 
-\begin{align*}
-    \bm{\delta \dot x_1 \\ \delta \dot x_2 \\ \delta \dot x_3 \\ \delta \dot x_4} &= \bm{-\lr{ \bar f_{13} \bar x_3 + \bar g_1 } &
+\begin{multline}\label{eqn::lin_model}
+    \bm{\delta \dot x_1 \\ \delta \dot x_2 \\ \delta \dot x_3 \\ \delta \dot x_4} = \bm{-\lr{ \bar f_{13} \bar x_3 + \bar g_1 } &
                     0 &
                     -\bar f_{13} \bar x_1 &
                     0 \\
@@ -98,7 +98,7 @@ We have the linearized model of the system:
                     0 & 0 & 0 & -g_4
                     }
     \bm{\delta x_1 \\ \delta x_2 \\ \delta x_3 \\ \delta x_4}\\
-            &\qquad+ \bm{ \bar b_{11} &
+            +\bm{ \bar b_{11} &
                             0 &
                             \delta f_{13} \bar x_1 \bar x_3 &
                             \lr{\delta b_{11} \bar u_1- \delta g_1 \bar x_1}
@@ -122,4 +122,4 @@ We have the linearized model of the system:
                         \delta b_{42} \bar u_2
                         }
     \bm{\delta u_1 \\ \delta u_2 \\ \delta T \\ \delta F}
-\end{align*}
+\end{multline}
