@@ -90,23 +90,13 @@ worked on modeling, estimation, and control for the urea-SCR system. He has one
 PhD student currently working on developing OBD for urea-SCR systems.
 
 
+\subsection{Approach to the research problem}
+Our approach is based on the presumption that the aging detection problem can be framed as a state/parameter estimation challenge with respect to the concentration dynamics of the gases involved. This gives rise to the following sub-problems:
 
-\subsection{Summary of work and results from 2023}
-
-\input{secs/apxA_files/notes_files/secs/2_SCR_reactions.tex}
-\input{secs/apxA_files/notes_files/secs/3_urea_dosing.tex}
-\input{secs/apxA_files/notes_files/secs/4_3state_model.tex}
-\input{secs/apxA_files/notes_files/secs/6_control_form.tex}
-\input{secs/apxA_files/notes_files/secs/7_cross_sensitivity_est.tex}
-
-\input{secs/apxA_files/notes_files/secs/5_adsorption_model.tex}
-
-\subsubsection{Conclusions}
-The full non-linear model for gas concentrations was derived based on a CSTR
-model with reduced-order dynamics, that were previously justified in
-literature. Model parameters were determined as explicit functions of reaction
-rates and the catalyst's ammonia storage capacity.  Parameter identification,
-beginning with the output equation and focusing on $NO_x$ sensor
-cross-sensitivity ($\chi$), was carried out using RMC test-cell data from
-degreened and aged catalysts. A preliminary indicator of aging was observed
-from the catalyst's storage capacity versus temperature curve.
+\begin{enumerate}
+\item Determining a suitable model for the system dynamics.
+\item Assessing whether the available data contains sufficient information for identifying the model parameters related to the chosen system dynamics.
+\item Investigating the relationship between the parameters/states and the aging factor of the catalyst.
+\item Understanding the uncertainties inherent in the aforementioned processes.
+\item Finally, developing and validating the aging detection algorithm.
+\end{enumerate}
