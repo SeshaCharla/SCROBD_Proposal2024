@@ -4,7 +4,7 @@
 %===============================================================================
 \subsection{Nonlinear Model: Effects on Parametrization from State Choice}
 
-\subsubsection{Reaction Rates}
+\subsubsection{Reactions and Reaction Rates Considered for the Nonlinear Model}
 \itbf{Assumptions:}
 \begin{enumerate}
 \item The reaction rates are only functions of gas-phase concentrations of $NO$,
@@ -183,8 +183,7 @@ Rewriting eqn.~\ref{eqn::3_state_theta}:
     b_v F \bm{1 & 0 \\ 0 & 1 \\ 0 & 0} \bm{u_1 \\ u_2}\\
 \end{equation}
 
-The following parameters are defined for convenience, based on the coefficients
-of product of states and individual states in each of the equations:
+The following parameters are defined similar to the previous model,
 \begin{align*}
     \text{Coefficients of product of states:} &\qquad& \text{Coefficients of states:}\\
     \mat{   & x_1    & x_2      & x_3    \\
@@ -236,13 +235,11 @@ of product of states and individual states in each of the equations:
     + b_v F \bm{u_1 \\ u_2 \\ 0}
 \end{equation}
 
-\itbf{Note}: Some $f_{\bullet}'s, g_{\bullet}'s$ are algebraically related.
-
 %===============================================================================
 
-\subsubsection{Parametrization w.r.t the choice of $x_3$}
-
-\begin{figure}[H]
+\subsubsection{Comparing Parametrizations w.r.t the Choice of $x_3$}
+\begin{enumerate}
+    \item  Parametrization if $x_3 = \theta_{NH_3}$
  \begin{align*}
     \mat{
     \\f_{13} &=& k_1 \Theta
@@ -259,9 +256,8 @@ of product of states and individual states in each of the equations:
     \\ g_{32} &=& k_{4F} V
     }
 \end{align*}
- \caption*{Parametrization if $x_3 = \theta_{NH_3}$}
-\end{figure}
-\begin{figure}[H]
+
+\item Parametrization if $x_3 = M_{NH_3}$
 \begin{align*}
     \mat{
     \\f_{13} &=& k_1
@@ -278,8 +274,7 @@ of product of states and individual states in each of the equations:
     \\ g_{32} &=& k_{4F} V \Theta
     }
 \end{align*}
-\caption*{Parametrization if $x_3 = M_{NH_3}$}
-\end{figure}
+\end{enumerate}
 
 In the second parametrization $\Theta$ is only coefficient of $k_{4F}$. This can
 reduce the variance of estimation. Thus making the choice of the third state as
