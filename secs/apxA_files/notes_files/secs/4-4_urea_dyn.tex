@@ -1,6 +1,6 @@
 \subsubsection{Non-linear Parametric Model}
 % ==============================================================================
-The actual input to the system is urea [from AdBlue ($32.5\%$ aqueous urea
+The actual input to the system is urea [from say, AdBlue ($32.5\%$ aqueous urea
 solution)] injection that converted to ammonia. This can be modelled by the following equation \cite{nova2014urea}:
 \begin{align*}
     \dot C_{NH_3, in} &= - \frac{1}{\tau} C_{NH_3, in} + 2 \frac{1}{\tau} \frac{ \eta u_{inj}}{N_{urea} F}\\
@@ -14,11 +14,10 @@ solution)] injection that converted to ammonia. This can be modelled by the foll
 
 \itbf{Assumptions}:
 \begin{enumerate}
-    \item The above model assumes that the evaporation of the urea-solutions
-        (reaction: \ref{eqn::urea_1}) is a significantly slower process as
+    \item The above model assumes that the evaporation of the urea-solutions is a significantly slower process as
         compared to it's decomposition into ammonia. Thus, the reaction
-        kinetics are neglected and the eveporation is considerd are a first
-        order process w.r.t the vapour pressure of the ammonia.
+        kinetics are neglected, and the evaporation is considered are a first
+        order process w.r.t the vapor pressure of the ammonia.
     \item The injection dynamics are completely decoupled from that of other
         states.
     \item Further, it is observed that Urea is completely converted to Ammonia
