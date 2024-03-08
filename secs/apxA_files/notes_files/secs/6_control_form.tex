@@ -37,8 +37,8 @@ Reparametrizing the above equation, let,
     \dot x_4 = - \omega_u x_4 +   \frac{\omega_u b_u}{F} u_{2}
 \end{equation}
 
-Using the parameetric model with $x_3 = M_{NH_3}$ and introducing urea dosing
-dyanmics from eqn.~\ref{eqn::urea_inj}. ($u_2$ becomes $x_4$.)
+Using the parametric model with $x_3 = M_{NH_3}$ and introducing urea dosing
+dynamics from eqn.~\ref{eqn::urea_inj}. ($u_2$ becomes $x_4$.)
 \begin{align*}
     \bm{x_1 \\ x_2 \\ x_3 \\ x_4} = \bm{C_{NO} \\ C_{NH_3} \\ M_{NH_3} \\ C_{NH_3, in}} \qquad &
     \bm{u_1 \\ u_2 } = \bm{C_{NO, in} \\ u_{inj}}
@@ -99,8 +99,9 @@ dyanmics from eqn.~\ref{eqn::urea_inj}. ($u_2$ becomes $x_4$.)
 
 %===============================================================================
 \subsubsection{Linearized Model}
+\cred{Utilizing small perturbations to linearize the model would explicitly reveal the dynamics' dependence on temperature and flow rate. Moreover, employing a linear model would broaden the range of tools available for estimator design.}
 The perturbation model would bring down the change in
-temperature from exponent to the algebriac form. We have the first-order tayler
+temperature from exponent to the algebraic form. We have the first-order \cred{Taylor}
 approximation of rate constant:
 \begin{align*}
     k(\bar T + \delta T) &\approx k(\bar T) + \frac{E_a}{R\bar T^2} k(\bar T) \delta T\\
